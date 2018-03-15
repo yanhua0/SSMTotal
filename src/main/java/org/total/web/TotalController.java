@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.total.dto.Exposer;
+import org.total.dto.TestResult;
 import org.total.entity.HotSale;
 import org.total.service.TotalService;
 
@@ -25,7 +27,7 @@ import java.util.List;
 public class TotalController {
     @Autowired
     private TotalService totalService;
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
+   @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String PageFirsr()
     {
         return "login";
@@ -91,5 +93,10 @@ public class TotalController {
         }
         out.close();
 
+    }
+    @RequestMapping(value = "/exposer")
+    public TestResult<Exposer> exposer(){
+        Exposer exposer=totalService.exposerUrl(1,"1","2");
+        return new TestResult<Exposer>(false,exposer);
     }
 }

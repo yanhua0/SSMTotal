@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.total.dao.HotSaleDao;
 import org.total.dao.cache.RedisDao;
+import org.total.dto.Exposer;
 import org.total.entity.HotSale;
 import org.total.exception.TotalException;
 import org.total.service.TotalService;
@@ -21,6 +22,7 @@ public class TotalServiceImpl implements TotalService{
      private Logger logger= LoggerFactory.getLogger(this.getClass());
     public List<HotSale> queryhotsale() {
         try {
+            logger.info("查询成功！");
             return hotSaleDao.queryAll();
         }catch (Exception e)
         {   logger.warn("系统错误！");
@@ -58,5 +60,9 @@ public class TotalServiceImpl implements TotalService{
             return hotSaleDao.queryAll();
         }
         return hotSaleDao.queryById2(id);
+    }
+
+    public Exposer exposerUrl(int id,String md5,String name) {
+        return new Exposer(md5,id,name);
     }
 }

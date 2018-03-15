@@ -1,6 +1,6 @@
 package org.total.enums;
 
-public enum TotalEnums {
+public enum TotalEnum {
      ;
     private int state;
     private String stateinfo;
@@ -13,13 +13,13 @@ public enum TotalEnums {
         return stateinfo;
     }
 
-    TotalEnums(int state, String stateinfo) {
+    TotalEnum(int state, String stateinfo) {
         this.state = state;
         this.stateinfo = stateinfo;
     }
-    public static TotalEnums stateof(int index)
+    public static TotalEnum stateof(int index)
     {
-        for (TotalEnums state:values())
+        for (TotalEnum state:values())
         {
             if(state.getState()==index)
             {
