@@ -1,5 +1,7 @@
 package org.total.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +66,10 @@ public class TotalServiceImpl implements TotalService{
 
     public Exposer exposerUrl(int id,String md5,String name) {
         return new Exposer(md5,id,name);
+    }
+    public PageInfo<HotSale> findpage(Integer page) {
+        PageHelper.startPage(page, 5);
+        List<HotSale> list=queryhotsale();
+        return new PageInfo<HotSale>(list);
     }
 }

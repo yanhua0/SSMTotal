@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--为DAO接口提供sql语句方法-->
+<mapper namespace="org.total.dao.ProductDao">
+    <delete id="delete" parameterType="int">
+        delete
+        from
+        product
+        where
+        <foreach item="id" collection="array" open="id in ("
+                 separator="," close=")">
+            #{id}
+        </foreach>
+
+    </delete>
+    <select id="queryName" resultType="java.lang.String">
+        select name
+        from  product
+    </select>
+    <insert id="insert" parameterType="java.util.List">
+        insert into product(id,name,price)
+        value
+        <foreach collection="list" item="list" index="index" separator=",">
+            (#{list.id},#{list.name},#{list.price})
+        </foreach>
+    </insert>
+    <select id="query" resultType="product">
+        select
+        *from  product
+        where
+        <foreach item="id" collection="array" open="id in ("
+                 separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <update id="update"  parameterType="java.util.List">
+        <foreach collection="list" item="list" index="index" separator=";">
+        update product set name=#{list.name},price=#{list.price} where id=#{list.id}
+        </foreach>
+    </update>
+
+</mapper>
