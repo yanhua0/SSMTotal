@@ -102,5 +102,7 @@ public class GetMessageCode {
         String random=(int)((Math.random()*9+1)*100000)+"";
         return random;
     }
-
+    public static void main(String[] args) throws JSONException {
+          getCode("13368364394");
+ }
 }

@@ -10,7 +10,7 @@ import com.sun.mail.util.MailSSLSocketFactory;
 import static org.total.message.GetMessageCode.smsCode;
 public class EmailUtil {
 
-    public static boolean send(String to,String subject,String msg){
+    public static String send(String to,String subject,String msg){
 
         Properties props = new Properties();
         //邮件传输的协议
@@ -48,20 +48,23 @@ public class EmailUtil {
 
         } catch (Exception ex) {
             // TODO Auto-generated catch block
-            ex.printStackTrace();
+            System.out.println("邮箱不存在");
+            msg=null;
         }
 
-        return false;
+        return msg;
 
     }
+public static String sendEmain(String qq)
+{   String rod=smsCode();
+    rod=EmailUtil.send(qq,"验证码",rod);
+    return rod;
 
-    public static void main(String[] args) {
-
-        while(true){
-            String rod=smsCode();
-            EmailUtil.send("1256656046@qq.com", "验证码",rod);
-        }
-
-    }
+}
+//    public static void main(String[] args) {
+//            String rod=smsCode();
+//            rod=EmailUtil.send("1256656046@qq.com", "验证码",rod);
+//            System.out.println(rod);
+//     }
 
 }

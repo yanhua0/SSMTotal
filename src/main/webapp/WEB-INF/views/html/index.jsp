@@ -3,7 +3,6 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -34,11 +33,11 @@
         var verifyCode = new GVerify("v_container");
         document.getElementById("code_input").onblur = function(){
             var res = verifyCode.validate(document.getElementById("code_input").value);
-            if(res){
-                alert("验证正确");
-            }else{
-                alert("验证码错误");
-            }
+            // if(res){
+            //     alert("验证正确");
+            // }else{
+            //     alert("验证码错误");
+            // }
         }
     })
 
@@ -65,6 +64,34 @@
             $("#btn").val(curCount + "秒后可重新发送");
         }
     }
+</script>
+<%--邮箱验证--%>
+<script>
+  $(function () {
+      var md;
+      $("#lo2").click(function () {
+           var qq=$("#qq").val();
+
+          console.log(qq);
+           $.post("/total/sendqq",{qq:qq},function (result) {
+                md=result.data;
+                if(md==null)
+                {
+                    console.log("该邮箱不存在！");
+                }
+            })
+      })
+      $("#lo3").click(function () {
+          var code=$("#dddd").val();
+          if(md==code)
+          {
+              alert("邮箱验证码正确！");
+          }
+          else{
+              alert("邮箱验证码错误！");
+          }
+      })
+  })  
 </script>
 <body>
 <div class="container">
@@ -93,11 +120,22 @@
                     <input class="btn btn-default" id="btn" name="btn" value="发送验证码" onclick="sendMessage()" />
                 </div>
             </div>
+            <hr style="color: red;z-index: 999;background-color: red">
             <div class="form-group" style="position: relative;top:50px;">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-info" id="lo">验证</button>
+                <label class="col-sm-2 control-label">邮箱</label>
+                <div class="col-sm-3">
+                    <input type="code" id="qq" style="width: 200px;" class="form-control"  name="code" placeholder="输入邮箱" required>
+                    <input class="btn btn-default" id="lo2"  name="btn" value="发送验证码" onclick="sendMessage()" />
+                    <input class="text" id="dddd"  name="btn" placeholder="输入邮箱验证码"/>
                 </div>
             </div>
+            <div class="form-group" style="position: relative;top:50px;">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-info" id="lo">验证手机验证码</button>
+                    <button type="button" class="btn btn-info" id="lo3">验证邮箱验证码</button>
+                </div>
+            </div>
+
         </form>
     </div>
 </div>
@@ -134,9 +172,9 @@
             alert("请输入验证码");
         }else{
             if(sms==code){
-                window.location.href="http://localhost:8866/TestCode/jsp/success.jsp";
+                alert("手机验证码输入正确");
             }else{
-                alert("验证码错误");
+                alert("手机验证码错误");
             };
         };
     });

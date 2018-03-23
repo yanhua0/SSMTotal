@@ -105,4 +105,5 @@ public class TotalController {
         Exposer exposer=totalService.exposerUrl(1,"1","2");
         return new TestResult<Exposer>(false,exposer);
     }
+
 }
