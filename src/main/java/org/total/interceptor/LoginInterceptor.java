@@ -18,7 +18,6 @@ public class LoginInterceptor implements HandlerInterceptor {
         System.out.println(request.getServletPath());
         HttpSession session = request.getSession();
         String username= (String) session.getAttribute("username");
-        System.out.println(username);
         String url=request.getRequestURI();
         if(url.indexOf("/total/check")>=0)
         {

@@ -27,7 +27,13 @@ import java.util.List;
 public class TotalController {
     @Autowired
     private TotalService totalService;
-   @RequestMapping(value = "/login",method = RequestMethod.GET)
+
+    @RequestMapping
+    public String Index()
+    {
+        return "index";
+    }
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String PageFirsr()
     {
         return "login";
@@ -36,7 +42,7 @@ public class TotalController {
     public String dd(HttpSession session)
     {   String username="123";
         session.setAttribute("username",username);
-        System.out.println("拦截器不能拦截的请求!!!"+session.getAttribute("username"));
+        System.out.println("拦截器不能拦截的请求!!!username="+session.getAttribute("username"));
         return "redirect:/total/pagehelper";
     }
     @RequestMapping(value = "/pagehelper",method = RequestMethod.GET)
