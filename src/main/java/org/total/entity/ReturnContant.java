@@ -1,4 +1,4 @@
-package org.total.service.impl;
+package org.total.entity;
 
 
 import org.springframework.stereotype.Service;

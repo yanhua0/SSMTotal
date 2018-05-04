@@ -7,7 +7,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import com.sun.mail.util.MailSSLSocketFactory;
-import static org.total.message.GetMessageCode.smsCode;
+import org.total.message.GetMessageCode;
+
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Util.println;
+
 public class EmailUtil {
 
     public static String send(String to,String subject,String msg){
@@ -56,15 +59,19 @@ public class EmailUtil {
 
     }
 public static String sendEmain(String qq)
-{   String rod=smsCode();
+{   String rod=GetMessageCode.smsCode();
     rod=EmailUtil.send(qq,"验证码",rod);
     return rod;
 
 }
-//    public static void main(String[] args) {
-//            String rod=smsCode();
-//            rod=EmailUtil.send("1256656046@qq.com", "验证码",rod);
-//            System.out.println(rod);
-//     }
+    public static void main(String[] args) {
+
+
+                String rod=GetMessageCode.smsCode();
+                rod=EmailUtil.send("1256656046@qq.com", "验证码","【在线购物】登录验证码："+rod+"，如非本人操作，请忽略此短信。");
+
+
+             println(rod);
+     }
 
 }

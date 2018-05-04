@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.total.service.impl.ReturnContant;
+import org.total.entity.ReturnContant;
 import org.total.message.GetMessageCode;
 import org.total.util.EmailUtil;
 
@@ -23,8 +23,7 @@ public class CodeController {
      * @param phone 获取的手机号码
      * @return
      */
-    @Autowired
-    private ReturnContant returnContant;
+    ReturnContant returnContant=new ReturnContant();
     @RequestMapping(value="/sendSMS",method= RequestMethod.POST)
     public @ResponseBody ReturnContant sendSMS(HttpServletRequest request,String phone) throws JSONException {
         //根据获取到的手机号发送验证码

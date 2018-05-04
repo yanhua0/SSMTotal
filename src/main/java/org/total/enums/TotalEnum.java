@@ -1,7 +1,7 @@
 package org.total.enums;
 
 public enum TotalEnum {
-     ;
+     FAIL(1,"查询失败！");
     private int state;
     private String stateinfo;
 

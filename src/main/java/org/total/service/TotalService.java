@@ -14,4 +14,5 @@ public interface TotalService {
     List<HotSale> queryById2(int id);
     Exposer exposerUrl(int id,String md5,String name);
     PageInfo<HotSale> findpage(Integer page);
+     String getTitle(final String s);
 }

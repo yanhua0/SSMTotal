@@ -57,7 +57,7 @@ public class ProductDaoTest {
     */
     @Test
     public void query() {
-        int id[]={1,222,322,422};
+        int id[]={1,2,322,422};
         List<Product> list=productDao.query(id);
         System.out.println(list);
     }

@@ -3,6 +3,7 @@ package org.total.dao;
 import org.total.entity.Product;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ProductDao {
     int delete(int[] id);
@@ -11,5 +12,6 @@ public interface ProductDao {
     List<Product> query(int[] id);
     List<Product> queryMul(List<Product> product);
     int update(List<Product> product);
+
 
 }

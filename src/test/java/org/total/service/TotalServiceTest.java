@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.total.dto.Exposer;
 import org.total.entity.HotSale;
 
 import java.util.List;
@@ -25,5 +26,17 @@ public class TotalServiceTest {
     public void queryById() {
         HotSale hotSale=totalService.queryById(1);
         System.out.println(hotSale);
+    }
+
+    @Test
+    public void exposerUrl() {
+        Exposer exposer=totalService.exposerUrl(1,"2","2");
+        System.out.println(exposer);
+    }
+
+    @Test
+    public void getTitle() {
+        String s="https://jingyan.baidu.com/article/219f4bf798e0cfde442d3831.html";
+        System.out.println(totalService.getTitle(s));
     }
 }
