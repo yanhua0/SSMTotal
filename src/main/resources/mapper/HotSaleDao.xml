@@ -21,4 +21,10 @@
         hotsale
         where id=#{id}
     </select>
+    <select id="queryByIdOrNumber" resultType="hotsale">
+        select*
+        from hotsale
+        where username=#{id} or
+        name=#{id}
+    </select>
 </mapper>

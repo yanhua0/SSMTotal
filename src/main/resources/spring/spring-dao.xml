@@ -9,7 +9,6 @@
     <!-- 配置需要被Spring管理的Bean（创建，创建后放在了Spring IOC容器里面）-->
     <!--spring整合mybatis-->
     <context:property-placeholder location="classpath:jdbc.properties" system-properties-mode="NEVER" />
-
     <!--数据库链接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!--配置连接池   -->
@@ -38,19 +37,17 @@
         <property name="typeAliasesPackage" value="org.total.entity"/>
         <!-- 扫描SQL配置文件 即mapper目录下的xml文件 -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
-</bean>
+    </bean>
         <!-- 配置扫描DAO接口包 动态实现DAO接口并注入到Spring容器中 -->
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 扫描DAO层下的接口 -->
         <property name="basePackage" value="org.total.dao"/>
-
     </bean>
     <!--RedisDao-->
     <bean id="redisDao" class="org.total.dao.cache.RedisDao">
         <constructor-arg index="0" value="localhost"/>
         <constructor-arg index="1" value="6379"/>
-
     </bean>
 </beans>
