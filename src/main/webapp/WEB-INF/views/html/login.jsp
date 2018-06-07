@@ -29,6 +29,11 @@
                 //         console.log("error...");
                 //     }
                 // });
+                //json遍历  success: function(data) {
+                //            for(var p in data){//遍历json数组时，这么写p为索引，0,1
+                //                data1[p]=data[p].data1;
+                //                data2[p]=data[p].data2;
+                //            }
             });
         });
 
