@@ -34,6 +34,22 @@
                 //                data1[p]=data[p].data1;
                 //                data2[p]=data[p].data2;
                 //            }
+                // Date类型转化
+                // function compareNine(value) {
+                //     return value > 9 ? value : '0' + value;
+                // }
+                // function formatNumToDate(value) {
+                //     var now=new Date(value)
+                //     //直接借助datapattern.js扩展 return now.pattern('yyyy-MM-dd hh:mm:ss');
+                //     //或者使用下面方式计算
+                //     var year = now.getYear() + 1900;//或者 now.getFullYear();
+                //     var month = now.getMonth() + 1;
+                //     var date = now.getDate();
+                //     var hour = now.getHours();
+                //     var minute = now.getMinutes();
+                //     var second = now.getSeconds();
+                //     return year + "-" + compareNine(month) + "-" + compareNine(date) + " " + compareNine(hour) + ":" + compareNine(minute) + ":" + compareNine(second);
+                // }
             });
         });
 
