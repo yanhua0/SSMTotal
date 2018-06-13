@@ -39,4 +39,5 @@ public class TotalServiceTest {
         String s="https://jingyan.baidu.com/article/219f4bf798e0cfde442d3831.html";
         System.out.println(totalService.getTitle(s));
     }
+
 }
