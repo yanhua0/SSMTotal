@@ -55,7 +55,8 @@ public class TotalController {
         model.addAttribute("hotsale",hotSale);
         return "list";
     }
-
+    @RequestMapping(value = "/up",method = RequestMethod.GET)
+    public String up(){return "upload";}
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     @ResponseBody
     public String upload(@RequestParam("file") MultipartFile[] file, HttpServletRequest request) throws IOException {
