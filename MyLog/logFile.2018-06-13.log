@@ -1,0 +1,6 @@
+632  20:35:12.856 - [main] INFO  org.total.service.impl.TotalServiceImpl - 查询成功！
+636  20:35:46.405 - [main] INFO  org.total.service.impl.TotalServiceImpl - 查询成功！
+802  20:45:13.387 - [main] INFO  org.total.service.impl.TotalServiceImpl - 查询成功！
+804  21:04:11.553 - [main] INFO  org.total.aspect.HttpAspect - 222222222222
+744  21:06:16.743 - [main] INFO  org.total.service.impl.TotalServiceImpl - 查询成功！
+677  21:06:37.847 - [main] INFO  org.total.service.impl.TotalServiceImpl - 查询成功！

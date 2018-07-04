@@ -8,6 +8,7 @@
         select
         *from
        hotsale
+       order by create_time desc
     </select>
     <select id="queryById" resultType="hotsale">
         select
