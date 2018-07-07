@@ -45,5 +45,6 @@
             </props>
         </property>
     </bean>
-<context:component-scan base-package="org.total.web" />
+<context:component-scan base-package="org.total.web,org.total.handle" />
+
 </beans>

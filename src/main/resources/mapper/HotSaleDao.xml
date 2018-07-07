@@ -28,4 +28,12 @@
         where username=#{id} or
         name=#{id}
     </select>
+    <!--<select id="queryAllName" resultType="order">-->
+        <!--select-->
+        <!--*from-->
+        <!--orderlist-->
+        <!--where-->
+        <!--name like concat('%',#{name},'%')-->
+        <!--and username=#{username}-->
+    <!--</select>-->
 </mapper>

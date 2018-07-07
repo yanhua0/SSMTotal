@@ -27,7 +27,11 @@ import java.util.List;
 public class TotalController {
     @Autowired
     private TotalService totalService;
+    @RequestMapping(value = "/advice",method = RequestMethod.GET)
+    public String getSomething(@RequestParam("msg") String msg){
 
+        throw new RuntimeException();
+    }
     @RequestMapping
     public String Index()
     {
