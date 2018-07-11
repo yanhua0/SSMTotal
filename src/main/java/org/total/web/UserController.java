@@ -14,6 +14,7 @@ public class UserController {
     {
 
         System.out.println("user{}"+user);
+
     }
     @RequestMapping(value = "/map",method = RequestMethod.GET)
     @ResponseBody

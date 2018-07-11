@@ -16,9 +16,9 @@ public class ExceptionHandle {
     private final static Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public String handle(RuntimeException e) {
+    public String handle12(Exception e) {
 
-            logger.error("【系统异常】{}", e);
+           logger.error("【系统异常】{}", e);
            return "error";
         }
     }
