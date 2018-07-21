@@ -51,6 +51,20 @@
                 //     return year + "-" + compareNine(month) + "-" + compareNine(date) + " " + compareNine(hour) + ":" + compareNine(minute) + ":" + compareNine(second);
                 // }
             });
+            $("#btn3").click(function () {
+                var arr=["1","2","3"];
+                console.log(arr);
+                $.get("/total/array",{arr:arr},function () {
+
+                })
+            });
+            $("#btn4").click(function () {
+                var arr=["1","2","3"];
+                console.log(arr);
+                $.get("/total/array1",{arr:arr},function () {
+
+                })
+            });
         });
 
     </script>
@@ -62,7 +76,8 @@
     <input type="text" name="password">
     <input type="button" id="btn1" value="提交user">
     <input type="button" id="btn2" value="提交map">
-
+    <input type="button" id="btn3" value="提交数组">
+    <input type="button" id="btn4" value="提交数组2">
 </form>
 </body>
 </html>

@@ -39,7 +39,7 @@
     <update id="update"  parameterType="java.util.List">
         <foreach collection="list" item="list" index="index" separator=";">
         update product set name=#{list.name},price=#{list.price} where id=#{list.id}
-        </foreach>
+    </foreach>
     </update>
 
 </mapper>

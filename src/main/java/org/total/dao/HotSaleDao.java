@@ -10,4 +10,5 @@ public interface HotSaleDao {
     HotSale queryById(int id);
     List<HotSale> queryById2(int id);
     HotSale queryByIdOrNumber(String id);
+    int insert(HotSale hotSale);
 }

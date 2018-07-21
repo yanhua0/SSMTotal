@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--为DAO接口提供sql语句方法-->
 <mapper namespace="org.total.dao.HotSaleDao">
+   
     <select id="queryAll" resultType="hotsale">
         select
         *from

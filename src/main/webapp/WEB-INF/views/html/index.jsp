@@ -166,6 +166,7 @@
         }
 
     });
+
     $("#lo").click(function(){
         var code=$("#code").val();
         if(code==""){
