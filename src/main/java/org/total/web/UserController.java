@@ -1,8 +1,9 @@
 package org.total.web;
 
+import mybatis.entity.User;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.*;
-import org.total.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -65,9 +66,9 @@ public class UserController {
      */
     @RequestMapping(value = "/array1",method = RequestMethod.GET)
     @ResponseBody
-    public void Entity1(@RequestParam("arr[]")String []arr)
+    public void Entity1(@RequestParam("arr[]")int []arr)
     {
-        for(String s:arr)
+        for(int s:arr)
             System.out.println(s);
 
     }

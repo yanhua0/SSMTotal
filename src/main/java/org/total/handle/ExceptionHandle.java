@@ -19,7 +19,7 @@ public class ExceptionHandle {
     public String handle12(Exception e) {
 
            logger.error("【系统异常】{}", e);
-           return "error";
+           return "错误信息";
         }
     }
 

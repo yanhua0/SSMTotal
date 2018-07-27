@@ -67,7 +67,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="user" domainObjectName="user"
+        <table tableName="user" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

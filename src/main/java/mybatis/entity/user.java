@@ -2,7 +2,7 @@ package mybatis.entity;
 
 import java.util.Date;
 
-public class user {
+public class User {
     private String username;
 
     private String password;
@@ -13,7 +13,7 @@ public class user {
 
     private Date createTime;
 
-    public user(String username, String password, Integer state, String phone, Date createTime) {
+    public User(String username, String password, Integer state, String phone, Date createTime) {
         this.username = username;
         this.password = password;
         this.state = state;

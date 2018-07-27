@@ -1,17 +1,17 @@
 package mybatis.dao;
 
-import mybatis.entity.user;
+import mybatis.entity.User;
 
-public interface userMapper {
+public interface UserMapper {
     int deleteByPrimaryKey(String username);
 
-    int insert(user record);
+    int insert(User record);
 
-    int insertSelective(user record);
+    int insertSelective(User record);
 
-    user selectByPrimaryKey(String username);
+    User selectByPrimaryKey(String username);
 
-    int updateByPrimaryKeySelective(user record);
+    int updateByPrimaryKeySelective(User record);
 
-    int updateByPrimaryKey(user record);
+    int updateByPrimaryKey(User record);
 }

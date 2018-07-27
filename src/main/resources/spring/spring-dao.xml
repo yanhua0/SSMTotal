@@ -35,7 +35,7 @@
         <!-- 配置Mybatis全局配置文件 即mybatis-config.xml -->
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <!-- 扫描entity包 使用别名 省略包名 -->
-        <property name="typeAliasesPackage" value="org.total.entity"/>
+        <property name="typeAliasesPackage" value="org.total.entity,mybatis.entity"/>
         <!-- 扫描SQL配置文件 即mapper目录下的xml文件 -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
@@ -44,7 +44,7 @@
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 扫描DAO层下的接口 -->
-        <property name="basePackage" value="org.total.dao"/>
+        <property name="basePackage" value="org.total.dao,mybatis.dao"/>
 
     </bean>
     <!--RedisDao-->
