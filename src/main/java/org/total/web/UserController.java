@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -64,12 +65,30 @@ public class UserController {
     /*
     这种方式要注意数组要写[]
      */
-    @RequestMapping(value = "/array1",method = RequestMethod.GET)
+    @RequestMapping(value = "/array1",method = RequestMethod.GET,produces = "text/html;charset=UTF-8")
     @ResponseBody
-    public void Entity1(@RequestParam("arr[]")int []arr)
+    public String Entity1(@RequestParam("arr[]")int []arr)
+    {    for(int s:arr)
     {
-        for(int s:arr)
-            System.out.println(s);
+        System.out.println(s);
+    }
+        return "中文";
 
+    }
+    /*
+    接受json数组对象
+     */
+    @RequestMapping(value = "/testjson",method = RequestMethod.POST)
+    @ResponseBody
+    public int saveUser(@RequestBody User[] user) {
+       System.out.println("-------------------");
+        for (User s:user
+             ) {
+            System.out.println(s);
+        }
+        /*
+       返回类型为String，前端报错
+         */
+        return 0;
     }
 }

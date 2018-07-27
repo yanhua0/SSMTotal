@@ -11,8 +11,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#btn1").click(function () {
-               window.document.f.action="/total/user";
-               window.document.f.submit();
+               // window.document.f.action="/total/user";
+               // window.document.f.submit();
+                $.get("user",{username:"中文",password:"312132"},function (result) {
+                    console.log("发送成功！！！");
+                });
             });
             $("#btn2").click(function () {
                 window.document.f.action="/total/map";
@@ -60,11 +63,41 @@
             });
             $("#btn4").click(function () {
                 var arr=["1","2","3"];
-                console.log(arr);
-                $.get("/total/array1",{arr:arr},function () {
 
+                $.get("/total/array1",{arr:arr},function (arr) {
+                    console.log(arr);
                 })
+
             });
+            $("#btn5").click(function () {
+                var user=[];
+                var data1={username:"test",password:"gz"};
+                var data2={username:"ququ",password:"gr"};
+                user.push(data1);
+                user.push(data2);
+
+                user=JSON.stringify(user);
+                // $.post("/total/testjson",user,function (arr) {
+                //     console.log("成功");
+                // });会报415错误
+
+                $.ajax({
+                    type:"POST",
+                    url:"/total/testjson",
+                    data:user,
+                    dataType:"json",
+                    cache:false,
+                    contentType:"application/json",
+                    success:function (data) {
+                        console.log(data);
+                    },
+                    error:function () {
+                        console.log("$.ajax发送失败！");
+                    }
+                });
+
+            });
+
         });
 
     </script>
@@ -78,6 +111,7 @@
     <input type="button" id="btn2" value="提交map">
     <input type="button" id="btn3" value="提交数组">
     <input type="button" id="btn4" value="提交数组2">
+    <input type="button" id="btn5" value="提交json对象数组">
 </form>
 </body>
 </html>

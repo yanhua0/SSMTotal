@@ -62,7 +62,7 @@ public class ProductDaoTest {
         System.out.println(list);
     }
 /*
-批量修改
+批量修改数据库连接加入allowMultiQueries=true
  */
     @Test
     public void update() {

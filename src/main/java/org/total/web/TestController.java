@@ -35,6 +35,7 @@ public class TestController {
       HotSale h=totalService.queryById(1);
 
         return h;
+
     }
     @RequestMapping(value="/test2",method=RequestMethod.GET)
     @ResponseBody

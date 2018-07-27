@@ -1,5 +1,7 @@
 package mybatis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
 public class User {
@@ -51,5 +53,16 @@ public class User {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", state=" + state +
+                ", phone='" + phone + '\'' +
+                ", createTime=" + createTime +
+                '}';
     }
 }
