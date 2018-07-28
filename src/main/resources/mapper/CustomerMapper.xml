@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--为DAO接口提供sql语句方法-->
+<mapper namespace="org.total.dao.CustomerMapper">
+    <resultMap id="BaseResultMap" type="org.total.entity.Customer" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="money" property="money" jdbcType="DOUBLE" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+
+        <!-- 一对多。通过用户的id查到用户的多个订单 -->
+        <collection property="orders" select="queryOrdersByUserId" column="id"
+                    ofType="org.total.entity.Orders"></collection>
+
+    </resultMap>
+    <select id="queryOrdersByUserId" resultType="org.total.entity.Orders" >
+        select
+        *
+        from orders
+        where cid = #{id}
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        *
+        from customer
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <!--用户的订单查询-->
+    <select id="selectInfo" resultType="org.total.entity.Orders">
+        select o.snu,o.price,
+        c.username "customer.username",
+        c.password "customer.password"
+        from orders o,customer c
+        where o.cid=c.id and c.username=#{username};
+    </select>
+</mapper>

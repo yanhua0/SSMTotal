@@ -99,4 +99,9 @@ public class HotSale {
                 ", buycarimg='" + buycarimg + '\'' +
                 '}';
     }
+
+    public HotSale(String name, String img) {
+        this.name = name;
+        this.img = img;
+    }
 }

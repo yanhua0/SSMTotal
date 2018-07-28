@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--为DAO接口提供sql语句方法-->
+<mapper namespace="org.total.dao.OrdersMapper">
+    <!-- 一对一，多对一 -->
+    <resultMap id="BaseResultMap" type="org.total.entity.Orders" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="snu" property="snu" jdbcType="VARCHAR" />
+        <result column="price" property="price" jdbcType="DECIMAL" />
+        <result column="stime" property="stime" jdbcType="TIMESTAMP" />
+         <result column="cid" property="cid" jdbcType="INTEGER" />
+
+        <!-- 一对一，多对一 ，通过订单的id查询到该订单的用户信息，一个订单只能有一个用户-->
+        <association property="customer" column="cid" select="selectCustomerById" >
+        </association>
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id, snu, price, stime, cid
+  </sql>
+    <select id="selectCustomerById" resultType="org.total.entity.Customer">
+        select * from customer
+        where id = #{cid}
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List" />
+        from orders
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+</mapper>

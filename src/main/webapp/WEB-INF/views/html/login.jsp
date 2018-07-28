@@ -13,9 +13,10 @@
             $("#btn1").click(function () {
                // window.document.f.action="/total/user";
                // window.document.f.submit();
-                $.get("user",{username:"中文",password:"312132"},function (result) {
+                $.post("user",{username:"中文",password:"312132"},function (result) {
                     console.log("发送成功！！！");
                 });
+
             });
             $("#btn2").click(function () {
                 window.document.f.action="/total/map";
@@ -71,8 +72,9 @@
             });
             $("#btn5").click(function () {
                 var user=[];
-                var data1={username:"test",password:"gz"};
-                var data2={username:"ququ",password:"gr"};
+                var te="1234"
+                var data1={"username":te,"password":"gz"};
+                var data2={"username":"中文","password":"gr"};
                 user.push(data1);
                 user.push(data2);
 
@@ -97,7 +99,16 @@
                 });
 
             });
-
+            $("#btn6").click(function () {
+                console.log("未成功");
+                var data1={"username":"test","password":"gz"};
+                var data2={"name":"中文","img":"gr"};
+                var a=data1+data2;
+                console.log(a);
+                $.post("/total/testjson1",{},function (arr) {
+                    console.log(arr);
+                });
+            });
         });
 
     </script>
@@ -111,7 +122,8 @@
     <input type="button" id="btn2" value="提交map">
     <input type="button" id="btn3" value="提交数组">
     <input type="button" id="btn4" value="提交数组2">
-    <input type="button" id="btn5" value="提交json对象数组">
+    <input type="button" id="btn5" value="提交json对象数组(同一个对象)">
+    <input type="button" id="btn6" value="获取后台Map">
 </form>
 </body>
 </html>

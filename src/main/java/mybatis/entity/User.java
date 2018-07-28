@@ -1,7 +1,5 @@
 package mybatis.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.Date;
 
 public class User {
@@ -64,5 +62,10 @@ public class User {
                 ", phone='" + phone + '\'' +
                 ", createTime=" + createTime +
                 '}';
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }

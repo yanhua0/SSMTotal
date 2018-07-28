@@ -4,15 +4,19 @@ import mybatis.entity.User;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.total.entity.HotSale;
+
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/total")
 public class UserController {
-    @RequestMapping(value = "/user",method = RequestMethod.GET)
+    @RequestMapping(value = "/user",method = RequestMethod.POST)
+    @ResponseBody
     public void Entity(User user)
     {
 
@@ -76,7 +80,7 @@ public class UserController {
 
     }
     /*
-    接受json数组对象
+    接受json数组对象(后台接受对象数组)
      */
     @RequestMapping(value = "/testjson",method = RequestMethod.POST)
     @ResponseBody
@@ -91,4 +95,16 @@ public class UserController {
          */
         return 0;
     }
+
+    @RequestMapping(value = "/testjson1",method = RequestMethod.POST)
+    @ResponseBody
+    public Object saveUser() {
+        User u=new User("2去","312");
+        HotSale h=new HotSale("12","中文");
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("u",u);
+        map.put("h",h);
+        return map;
+    }
+
 }
