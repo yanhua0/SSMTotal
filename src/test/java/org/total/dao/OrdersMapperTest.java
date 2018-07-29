@@ -11,18 +11,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class OrdersMapperTest {
     @Autowired
     private  OrdersMapper ordersMapper;
-    @Autowired
-    private CustomerMapper customerMapper;
+
     @Test
     public void selectCustomerById() {
         System.out.println(ordersMapper.selectByPrimaryKey(1).getCustomer());
     }
-    @Test
-    public void selectOrdersById() {
-        System.out.println(customerMapper.selectByPrimaryKey(5).getOrders());
-    }
-    @Test
-    public void selectInfo() {
-        System.out.println(customerMapper.selectInfo("八戒222").get(0).getCustomer());
-    }
+
+
 }
