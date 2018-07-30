@@ -100,13 +100,42 @@
 
             });
             $("#btn6").click(function () {
-                console.log("未成功");
-                var data1={"username":"test","password":"gz"};
-                var data2={"name":"中文","img":"gr"};
-                var a=data1+data2;
-                console.log(a);
                 $.post("/total/testjson1",{},function (arr) {
                     console.log(arr);
+                    $.ajax({
+                        type:"POST",
+                        url:"/total/test1",
+                        data:JSON.stringify(arr),
+                        dataType:"json",
+                        cache:false,
+                        contentType:"application/json",
+                        success:function (data) {
+                            console.log(data);
+                        },
+                        error:function () {
+                            console.log("$.ajax发送失败！");
+                        }
+                    });
+                });
+            });
+            $("#btn7").click(function () {
+             var data1={"user":{"username":"test","password":"gz"},"hotsale":{"name":"中文","img":"gr"}};
+                data1=JSON.stringify(data1);
+            // json对象转换   data1=$.parseJSON(data1);
+            // console.log(data1);
+                $.ajax({
+                    type:"POST",
+                    url:"/total/test1",
+                    data:data1,
+                    dataType:"json",
+                    cache:false,
+                    contentType:"application/json",
+                    success:function (data) {
+                        console.log(data);
+                    },
+                    error:function () {
+                        console.log("$.ajax发送失败！");
+                    }
                 });
             });
         });
@@ -124,6 +153,7 @@
     <input type="button" id="btn4" value="提交数组2">
     <input type="button" id="btn5" value="提交json对象数组(同一个对象)">
     <input type="button" id="btn6" value="获取后台Map">
+    <input type="button" id="btn7" value="Map接收json字符串">
 </form>
 </body>
 </html>

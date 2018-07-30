@@ -22,10 +22,8 @@
     where username = #{username,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="mybatis.entity.User" >
-    insert into user (username, password, state, 
-      phone, create_time)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
-      #{phone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+    insert into user (username, password)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="mybatis.entity.User" >
     insert into user

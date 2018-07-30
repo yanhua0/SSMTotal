@@ -90,6 +90,7 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
+    <!--使用@ResponseBody注解给前端返回json对象-->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
@@ -201,6 +202,13 @@
       <groupId>org.apache.geronimo.bundles</groupId>
       <artifactId>aspectjweaver</artifactId>
       <version>1.6.8_2</version>
+    </dependency>
+    <!--将对象转为java对象jar包-->
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.4</version>
+      <classifier>jdk15</classifier>
     </dependency>
   </dependencies>
 

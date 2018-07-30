@@ -1,20 +1,22 @@
 package org.total.web;
 
+import mybatis.dao.UserMapper;
 import mybatis.entity.User;
+import net.sf.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.*;
 import org.total.entity.HotSale;
 
-
 import javax.servlet.http.HttpServletRequest;
-
 import java.util.HashMap;
 import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/total")
 public class UserController {
+    @Autowired
+    private UserMapper userMapper;
     @RequestMapping(value = "/user",method = RequestMethod.POST)
     @ResponseBody
     public void Entity(User user)
@@ -23,10 +25,12 @@ public class UserController {
         System.out.println("user{}"+user);
 
     }
-
+/*
+前端不能为空字符串
+ */
     @RequestMapping(value = "/map",method = RequestMethod.GET)
     @ResponseBody
-    public void Entity2(@RequestParam Map<String,String> map)
+    public void Entity2(@RequestParam  Map<String,String> map)
     {     if(map.containsKey("username"))
          {
         int username=Integer.parseInt(map.get("username"));
@@ -35,6 +39,7 @@ public class UserController {
         {
             String username=map.get("password");
         }
+        System.out.println(map);
        for(String key:map.keySet())
        {
            System.out.println("key="+key+"value="+map.get(key));
@@ -106,5 +111,24 @@ public class UserController {
         map.put("h",h);
         return map;
     }
+/*
+map接收json
+ */
+  @RequestMapping(value = "/test1",method = RequestMethod.POST)
+  @ResponseBody
+  public Object saveUser11(@RequestBody Map<String,Object> map ) {
+      try {
+          Object obj= map.get("user");
+          System.out.println("obj="+obj);
+        JSONObject jsonobject = JSONObject.fromObject(obj);
+        User user= (User)JSONObject.toBean(jsonobject,User.class);
+        userMapper.insert(user);
+          System.out.println(user);
+      }catch (Exception e){
+          System.out.println(e.getMessage());
+      }
+
+       return map;
+}
 
 }
