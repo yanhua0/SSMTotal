@@ -21,7 +21,7 @@
     delete from user
     where username = #{username,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="mybatis.entity.User" >
+  <insert id="insert" parameterType="mybatis.entity.User" useGeneratedKeys="true" keyProperty="id" >
     insert into user (username, password)
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
