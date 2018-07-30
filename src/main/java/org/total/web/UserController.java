@@ -112,7 +112,7 @@ public class UserController {
         return map;
     }
 /*
-map接收json
+map接收json--
  */
   @RequestMapping(value = "/test1",method = RequestMethod.POST)
   @ResponseBody
