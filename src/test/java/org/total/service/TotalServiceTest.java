@@ -9,8 +9,6 @@ import org.total.dto.Exposer;
 import org.total.entity.HotSale;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-dao.xml","classpath:spring/spring-service.xml"})
 public class TotalServiceTest {
@@ -39,5 +37,8 @@ public class TotalServiceTest {
         String s="https://jingyan.baidu.com/article/219f4bf798e0cfde442d3831.html";
         System.out.println(totalService.getTitle(s));
     }
-
+    @Test
+    public void getMD5() {
+        System.out.println(totalService.getMD5(1));
+    }
 }

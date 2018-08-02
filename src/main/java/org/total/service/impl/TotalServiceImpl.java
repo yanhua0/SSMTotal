@@ -78,7 +78,7 @@ public class TotalServiceImpl implements TotalService{
         List<HotSale> list=queryhotsale();
         return new PageInfo<HotSale>(list);
     }
-    private String getMD5(long id)
+    public String getMD5(long id)
     {
         String base=id+"/"+slat;
         String md5=DigestUtils.md5DigestAsHex(base.getBytes());
