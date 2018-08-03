@@ -40,6 +40,9 @@ public class BASE64 {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        String s="abc";
+        boolean f=s.contains("acb");
+        System.out.println(f);
 
     }
 

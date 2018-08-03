@@ -30,5 +30,7 @@ public class Result {
         this.state = stateEnum.getState();
         this.stateinfo = stateEnum.getStateinfo();
     }
+    public Result() {
 
+    }
 }

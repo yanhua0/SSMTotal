@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.total.dto.Exposer;
 import org.total.dto.TestResult;
 import org.total.entity.HotSale;
+import org.total.exception.TotalException;
 import org.total.service.TotalService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,9 +30,9 @@ public class TotalController {
     private TotalService totalService;
 
     @RequestMapping(value = "/advice", method = RequestMethod.GET)
-    public String getSomething(@RequestParam("msg") String msg) {
+    public String getSomething() {
 
-        throw new RuntimeException();
+        throw new TotalException("故意异常！！！！");
     }
 
     @RequestMapping
