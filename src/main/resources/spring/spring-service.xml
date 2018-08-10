@@ -17,8 +17,9 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!-- 声明Aspect配置 -->
     <!--   扫描指定包下注释  -->
     <context:component-scan base-package="org.total.aspect" />
-    <!-- 声明Aspect配置 -->
     <aop:aspectj-autoproxy/>
 </beans>

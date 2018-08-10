@@ -41,3 +41,18 @@ public class ExceptionHandle {
 
     }
 
+//    public ModelAndView handle(Exception e, HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        logger.error("系统发生错误-------------------");
+//        ExceptionResult r = null;
+//        if (e instanceof RuntimeException) {
+//            r = new ExceptionResult(-1, e.getMessage());
+//        } else {
+//            r = new ExceptionResult(0, "未知错误---请联系管理员!");
+//        }
+//        ModelAndView mv = new ModelAndView();
+//        logger.error("错误信息：" + r.getStateInfo());
+//        mv.addObject("message", r);//想当于model.attribute()
+//        mv.setViewName("error");//设置映射的页面名称
+//        return mv;
+//
+//    }
