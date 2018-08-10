@@ -17,12 +17,13 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserMapper userMapper;
-
+//springmvc不能直接用数组对象和list集合接受对象,可以使用json字符串
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    @ResponseBody
+
     public void Entity(User user) {
 
         System.out.println("user{}" + user);
+
 
     }
 

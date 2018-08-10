@@ -11,11 +11,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#btn1").click(function () {
-               // window.document.f.action="/total/user";
-               // window.document.f.submit();
-                $.post("user",{username:"中文",password:"312132"},function (result) {
-                    console.log("发送成功！！！");
-                });
+               window.document.f.action="/total/user";
+               window.document.f.submit();
+               //  $.post("user",{username:"中文",password:"312132"},function (result) {
+               //      console.log("发送成功！！！");
+               //  });
 
             });
             $("#btn2").click(function () {
@@ -143,10 +143,13 @@
     </script>
 </head>
 <body>
-<form name="f"  method="get">
+<form name="f"  method="post">
 
+
+    <input type="text" name="password">
     <input type="text" name="username">
     <input type="text" name="password">
+    <input type="text" name="username">
     <input type="button" id="btn1" value="提交user">
     <input type="button" id="btn2" value="提交map">
     <input type="button" id="btn3" value="提交数组">

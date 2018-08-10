@@ -104,4 +104,7 @@ public class HotSale {
         this.name = name;
         this.img = img;
     }
+    public HotSale() {
+
+    }
 }

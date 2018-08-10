@@ -2,13 +2,16 @@ package org.total.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.total.entity.HotSale;
 import org.total.service.TotalService;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 @Controller
@@ -42,5 +45,15 @@ public class TestController {
     public HotSale reg231(){
         HotSale h=totalService.queryById(1);
         return h;
+    }
+    @RequestMapping(value="/datas",method=RequestMethod.POST)
+
+    public void reg2231(@RequestParam("da")String da) throws ParseException {
+
+        SimpleDateFormat sip=new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+
+        Date birthday=sip.parse(da);
+        System.out.println(birthday);
+
     }
 }

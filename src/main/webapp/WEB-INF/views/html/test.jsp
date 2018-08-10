@@ -22,5 +22,9 @@ $(function(){
 	});
 })
 </script>
+<form action="/datas" method="post">
+    <input type="datetime-local" name="da">
+    <input type="submit">
+</form>
 </body>
 </html>

@@ -13,7 +13,7 @@ public class CustomerMapperTest {
     private CustomerMapper customerMapper;
     @Test
     public void selectInfo() {
-        System.out.println(customerMapper.selectInfo("八戒222").get(0).getCustomer());
+        System.out.println(customerMapper.selectInfo("八戒222"));
     }
 
     @Test
