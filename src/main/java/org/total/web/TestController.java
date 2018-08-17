@@ -56,4 +56,8 @@ public class TestController {
         System.out.println(birthday);
 
     }
+    @RequestMapping(value="/testfile",method=RequestMethod.GET)
+    public String tests(){
+        return "test/test";
+    }
 }
