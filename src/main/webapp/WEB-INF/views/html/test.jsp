@@ -17,14 +17,24 @@
 <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$.post("test2",{},function(result){
-		console.log(result);
-	});
+    $.ajax({
+        cache: false,
+        type: "get",
+        url:"form",	//把表单数据发送到ajax.jsp
+        data:$('#ajaxFrm').serialize(),	//要发送的是ajaxFrm表单中的数据
+        async: false,
+        error: function(request) {
+            alert("发送请求失败！");
+        },
+        success: function(data) {
+           console.log(data);	//将返回的结果显示到ajaxDiv中
+        }
+    });
 })
 </script>
-<form action="/datas" method="post">
-    <input type="datetime-local" name="da">
-    <input type="submit">
+<form id="ajaxFrm" action="/datas" method="post">
+    <input type="text" name="username" value="1">
+    <input type="text" name="password" value="1">
 </form>
 </body>
 </html>

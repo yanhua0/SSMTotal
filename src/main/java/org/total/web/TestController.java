@@ -1,5 +1,6 @@
 package org.total.web;
 
+import mybatis.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,11 +48,9 @@ public class TestController {
         return h;
     }
     @RequestMapping(value="/datas",method=RequestMethod.POST)
-
     public void reg2231(@RequestParam("da")String da) throws ParseException {
 
         SimpleDateFormat sip=new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-
         Date birthday=sip.parse(da);
         System.out.println(birthday);
 
@@ -59,5 +58,10 @@ public class TestController {
     @RequestMapping(value="/testfile",method=RequestMethod.GET)
     public String tests(){
         return "test/test";
+    }
+    @RequestMapping(value="/form",method=RequestMethod.GET)
+    @ResponseBody
+    public User tests1(User user){
+       return  user;
     }
 }

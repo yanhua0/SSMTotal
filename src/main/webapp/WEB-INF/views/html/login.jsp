@@ -72,7 +72,7 @@
             });
             $("#btn5").click(function () {
                 var user=[];
-                var te="1234"
+                var te="1234";
                 var data1={"username":te,"password":"gz"};
                 var data2={"username":"中文","password":"gr"};
                 user.push(data1);
