@@ -86,6 +86,7 @@ public class UserController {
     /*
     接受json数组对象(后台接受对象数组)
      */
+
     @RequestMapping(value = "/testjson", method = RequestMethod.POST)
     @ResponseBody
     public int saveUser(@RequestBody User[] user) {

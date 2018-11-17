@@ -24,7 +24,7 @@ public class GetMessageCode {
         System.out.println("验证码："+rod);
         String timestamp=getTimestamp();
         String sig=getMD5(ACCOUNT_SID,AUTH_TOKEN,timestamp);
-        String tamp="【在线购物】登录验证码："+rod+"，如非本人操作，请忽略此短信。";//这里一定要与新建模板中的短信内容一致，一个空格都不能多，否者短信打死都发不过去哦
+        String tamp="【企业员工工资管理系统】登录验证码："+rod+"，如非本人操作，请忽略此短信。";//这里一定要与新建模板中的短信内容一致，一个空格都不能多，否者短信打死都发不过去哦
        System.out.println("tamp="+tamp);
         OutputStreamWriter out=null;
         BufferedReader br=null;

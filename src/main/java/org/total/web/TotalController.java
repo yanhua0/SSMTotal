@@ -42,7 +42,7 @@ public class TotalController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String PageFirsr() {
-        return "login";
+        return "test/login";
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)

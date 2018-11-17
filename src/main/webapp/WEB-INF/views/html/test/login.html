@@ -1,0 +1,184 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("resources/image/login/login.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #cb {
+            cursor: pointer;
+        }
+
+        .glyphicon {
+            font-size: 22px;
+            position: relative;
+            top: 4px;
+            /*color: white;*/
+        }
+
+        .container {
+            width: 400px;
+            position: relative;
+            top: 25%;
+        }
+
+        .text {
+            width: 234px;
+            height: 35px;
+            border: 0;
+            outline: none;
+        }
+
+        .lab {
+            width: 310px;
+            height: 37px;
+            border: 1px solid #ccc;
+            margin-bottom: 23px;
+            border-radius: 2px;
+        }
+
+        #phone {
+            width: 210px;
+            height: 37px;
+            border: 1px solid #ccc;
+            margin-bottom: 23px;
+            border-radius: 2px;
+            float: left;
+        }
+
+        #send {
+            width: 134px;
+            height: 35px;
+            border: 0;
+            outline: none;
+        }
+
+        #login {
+            width: 310px;
+            height: 36px;
+        }
+
+        #forgetPass {
+            margin-left: 260px;
+        }
+
+        #btn {
+            width: 93px;
+            height: 37px;
+            font-size: 15px;
+            color: #fff;
+            cursor: pointer;
+            background: #337ab7;
+            font-family: "Microsoft YaHei";
+            text-decoration: none;
+            display: block;
+            float: left;
+            text-align: center;
+            line-height: 37px;
+            margin-left: 6px;
+        }
+
+        #btn:hover {
+            background: #3d719e;
+        }
+
+        i {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+    <script>
+        $(function () {
+
+
+            var timer; //timer变量，控制时间
+            var count = 60; //间隔函数，1秒执行
+            var curCount;//当前剩余秒数
+            function sendMessage() {
+                console.log("发送验证码");
+                curCount = count;
+                $("#btn").attr("disabled", "true");
+                $("#btn").css("font-size", "15px");
+                $("#btn").html("重新获取(" + curCount + ")");
+                timer = window.setInterval(go, 1000); //启动计时器，1秒执行一次请求后台发送验证码 TODO
+            }
+
+//timer处理函数
+            function go() {
+                if (curCount == 0) {
+                    window.clearInterval(timer);//停止计时器
+                    $("#btn").removeAttr("disabled");//启用按钮
+                    $("#btn").val("重新获取");
+                }
+                else {
+                    curCount--;
+                    $("#btn").html("重新获取(" + curCount + ")");
+                }
+            }
+
+            $("#btn").click(function () {
+                console.log("123");
+                $.get("code", {phone: $("#num").val()}, function (data) {
+                    sendMessage();
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#home" data-toggle="tab">
+                        账号密码登录
+                    </a>
+                </li>
+                <li><a href="#ios" data-toggle="tab">手机动态登录</a></li>
+
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <br>
+                <div class="tab-pane fade in active" id="home">
+                    <div class="lab"><label for=""><i title="用户名" class="glyphicon glyphicon-user"></i><input
+                            type="text" placeholder="用户名" class="text"></label></div>
+
+                    <div class="lab"><label for=""><i title="密码" class="glyphicon glyphicon-lock"></i><input
+                            type="password" placeholder="密码" class="text"></label></div>
+                    <div><input id="cb" type="checkbox">自动登录</div>
+                    <br>
+                    <div><input type="button" id="login" class="btn btn-primary" value="登录"></div>
+                    <br>
+                    <div id="forgetPass"><a href="javascript:void(0)">忘记密码？</a></div>
+                </div>
+                <div class="tab-pane fade" id="ios">
+                    <div class="lab"><label for=""><i title="手机号" class="glyphicon glyphicon-phone"></i><input
+                            type="text" placeholder="手机号" id="num" class="text"></label></div>
+                    <div id="phone"><label for=""><i title="动态码" class="glyphicon glyphicon-lock"></i><input type="text"
+                                                                                                             placeholder="动态码"
+                                                                                                             id="send"></label>
+                    </div>
+                    <a id="btn">发送验证码</a>
+                    <br>
+                    <div><input type="button" id="login" class="btn btn-primary" value="登录"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
