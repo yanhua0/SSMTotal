@@ -53,22 +53,20 @@ public class User {
         this.createTime = createTime;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", state=" + state +
-                ", phone='" + phone + '\'' +
-                ", createTime=" + createTime +
-                '}';
+    public User() {
+
     }
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
-    public User() {
 
+    public User(String username, String password, Integer state, String phone, Date createTime) {
+        this.username = username;
+        this.password = password;
+        this.state = state;
+        this.phone = phone;
+        this.createTime = createTime;
     }
 }

@@ -64,7 +64,7 @@ public class UserController {
             System.out.println(s);
         }
         /*
-        只能获取到数组的第一个值
+        使用map只能获取到数组的第一个值
          */
         System.out.println("所有name的map集合" + map);
         System.out.println("map=" + map.get("arr[]"));

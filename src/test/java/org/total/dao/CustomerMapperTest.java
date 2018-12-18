@@ -1,5 +1,6 @@
 package org.total.dao;
 
+import mybatis.dao.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class CustomerMapperTest {
     @Autowired
     private CustomerMapper customerMapper;
+    @Autowired
+    private UserMapper userMapper;
     @Test
     public void selectInfo() {
         System.out.println(customerMapper.selectInfo("八戒222"));
@@ -23,5 +26,6 @@ public class CustomerMapperTest {
 
     @Test
     public void selectInfo1() {
+        System.out.println(userMapper.selectByPrimaryKey("1"));
     }
 }

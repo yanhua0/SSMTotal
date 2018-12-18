@@ -2,6 +2,8 @@ package mybatis.dao;
 
 import mybatis.entity.User;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(String username);
 
@@ -14,4 +16,5 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    List<User> findAll();
 }

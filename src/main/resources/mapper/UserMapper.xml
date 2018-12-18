@@ -17,13 +17,18 @@
     from user
     where username = #{username,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="findAll" resultType="mybatis.entity.User">
+      select *from user
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user
     where username = #{username,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="mybatis.entity.User" useGeneratedKeys="true" keyProperty="id" >
-    insert into user (username, password)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="mybatis.entity.User" >
+    insert into user (username, password, state, 
+      phone, create_time)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
+      #{phone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="mybatis.entity.User" >
     insert into user
