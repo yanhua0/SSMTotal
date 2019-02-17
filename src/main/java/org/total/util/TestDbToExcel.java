@@ -33,7 +33,7 @@
 //
 //            //查询数据库中所有的数据
 //
-//            List<User> list= StuService.getAllByDb();22
+//            List<User> list= StuService.getAllByDb();
 //            //要插入到的Excel表格的行号，默认从0开始
 //            Label labelId= new Label(0, 0, "编号(id)");//表示第
 //            Label labelName= new Label(1, 0, "姓名(name)");
