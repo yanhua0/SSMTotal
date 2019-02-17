@@ -1,6 +1,0 @@
-2633 12:02:08.157 - [main] INFO  org.total.aspect.HttpAspect - url=http://localhost/test1
-2644 12:02:08.168 - [main] INFO  org.total.aspect.HttpAspect - method=GET
-2644 12:02:08.168 - [main] INFO  org.total.aspect.HttpAspect - ip=127.0.0.1
-2646 12:02:08.170 - [main] INFO  org.total.aspect.HttpAspect - class_method=org.total.web.TestController.reg1
-2646 12:02:08.170 - [main] INFO  org.total.aspect.HttpAspect - args=372993
-2660 12:02:08.184 - [main] INFO  org.total.aspect.HttpAspect - 222222222222
