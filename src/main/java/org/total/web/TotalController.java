@@ -41,7 +41,8 @@ public class TotalController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String PageFirsr() {
+    public String PageFirsr(HttpSession session) {
+        session.setAttribute("user","BUVWIBGOIUQEBOEI");
         return "login";
     }
 
