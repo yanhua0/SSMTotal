@@ -1,19 +1,19 @@
 package org.total.util;
 
-import java.util.Properties;
+import com.sun.mail.util.MailSSLSocketFactory;
+import org.total.message.GetMessageCode;
 
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import com.sun.mail.util.MailSSLSocketFactory;
-import org.total.message.GetMessageCode;
+import java.util.Properties;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Util.println;
 
 public class EmailUtil {
 
-    public static String send(String to,String subject,String msg){
+    public static String send(String to,String subject,String msg)  {
 
         Properties props = new Properties();
         //邮件传输的协议
@@ -35,7 +35,8 @@ public class EmailUtil {
             //第二步：获取邮件传输对象
             Transport ts= session.getTransport();
             //连接邮件服务器
-            ts.connect("2060146330@qq.com", "ranpqsldfevsejja");
+
+            ts.connect("2060146330@qq.com", "rmjgmpchzptvgcch");
             //第三步：创建邮件消息体
             MimeMessage message = new MimeMessage(session);
             //设置邮件的内容
@@ -51,7 +52,7 @@ public class EmailUtil {
 
         } catch (Exception ex) {
             // TODO Auto-generated catch block
-            System.out.println("邮箱不存在");
+            System.out.println("邮箱不存在:错误信息："+ex.getMessage());
             msg=null;
         }
 
@@ -68,7 +69,7 @@ public static String sendEmain(String qq)
 
 
                 String rod=GetMessageCode.smsCode();
-                rod=EmailUtil.send("1256656046@qq.com", "验证码","【在线购物】登录验证码："+rod+"，如非本人操作，请忽略此短信。");
+                rod=EmailUtil.send("244105466@qq.com", "验证码","【在线购物】登录验证码："+rod+"，如非本人操作，请忽略此短信。");
 
 
              println(rod);

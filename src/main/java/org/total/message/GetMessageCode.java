@@ -103,6 +103,6 @@ public class GetMessageCode {
         return random;
     }
     public static void main(String[] args) throws JSONException {
-          getCode("13368364394");
+          getCode("15123045228");
  }
 }
