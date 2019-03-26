@@ -138,18 +138,31 @@
                     }
                 });
             });
+            $("#btn8").click(function () {
+                $.ajax({
+                    type:"post",
+                    url:"/total/ajaxForm",
+                    data : $("#form").serialize(),
+                    success  :function (res) {
+                        console.log(res);
+                    },error:function () {
+                        }
+                    });
+
+            })
         });
+        
 
     </script>
 </head>
 <body>
-<form name="f"  method="post">
+<form name="f"  method="post" id="form">
 
 
     <input type="text" name="password">
     <input type="text" name="username">
-    <input type="text" name="password">
-    <input type="text" name="username">
+    <%--<input type="text" name="password">--%>
+    <%--<input type="text" name="username">--%>
     <input type="button" id="btn1" value="提交user">
     <input type="button" id="btn2" value="提交map">
     <input type="button" id="btn3" value="提交数组">
@@ -157,6 +170,7 @@
     <input type="button" id="btn5" value="提交json对象数组(同一个对象)">
     <input type="button" id="btn6" value="获取后台Map">
     <input type="button" id="btn7" value="Map接收json字符串">
+    <input type="button" id="btn8" value="ajax提交form表单">
 </form>
 </body>
 </html>

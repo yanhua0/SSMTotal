@@ -131,5 +131,9 @@ public class UserController {
 
         return map;
     }
-
+    @RequestMapping(value = "/ajaxForm", method = RequestMethod.POST)
+    @ResponseBody
+    public User saveUser(User user) {
+       return user;
+    }
 }

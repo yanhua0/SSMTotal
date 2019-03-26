@@ -214,7 +214,7 @@
       <artifactId>aspectjweaver</artifactId>
       <version>1.6.8_2</version>
     </dependency>
-    <!--将对象转为java对象jar包-->
+    <!--将对象转为java对象jar包JsonObject-->
     <dependency>
       <groupId>net.sf.json-lib</groupId>
       <artifactId>json-lib</artifactId>
