@@ -34,7 +34,7 @@
     </script>
 </head>
 <body>
-<a href="da">点击</a>
+<a href="da">${test}</a>
 <td><input id="path" type="text" name="path" size="30"></td>
 <td><input type=button value="选择" onclick="browseFolder('path')"></td>
 </body>

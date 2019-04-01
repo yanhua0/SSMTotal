@@ -3,6 +3,7 @@ package org.total.web;
 import mybatis.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,5 +64,15 @@ public class TestController {
     @ResponseBody
     public User tests1(User user){
        return  user;
+    }
+    @RequestMapping(value = "/test22",method = RequestMethod.GET)
+    public String test(Model model){
+        model.addAttribute("test","子页面");
+        return "test/test";
+    }
+    @RequestMapping(value = "/admin",method = RequestMethod.GET)
+    public String admin(Model model){
+
+        return "test/admin";
     }
 }

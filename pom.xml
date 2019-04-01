@@ -47,6 +47,12 @@
   <properties>
     <spring.version>4.3.13.RELEASE</spring.version>
   </properties>
+  <!--<properties>-->
+    <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+    <!--&lt;!&ndash;<spring.version>4.0.2.RELEASE</spring.version>&lt;!&ndash; 声明版本号，以后统一在这里进行管理&ndash;&gt;&ndash;&gt;-->
+    <!--<maven.compiler.source>1.8</maven.compiler.source>-->
+    <!--<maven.compiler.target>1.8</maven.compiler.target>-->
+  <!--</properties>-->
   <dependencies>
     <!--使用junit4-->
     <dependency>
@@ -194,6 +200,7 @@
       <artifactId>commons-io</artifactId>
       <version>2.4</version>
     </dependency>
+    <!--手机验证码-->
       <dependency>
           <groupId>com.github.tomakehurst</groupId>
           <artifactId>wiremock</artifactId>
