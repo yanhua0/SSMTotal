@@ -9,7 +9,7 @@ public class DateTestUtil {
 
         SimpleDateFormat sdf=new SimpleDateFormat("MM/dd");
         String str="11/12";
-        Date dt=sdf.parse(str);
+        Date dt=new Date();
        dt.setDate(30);
         System.out.println(dt.getDate());
         dt.setMonth(12);
