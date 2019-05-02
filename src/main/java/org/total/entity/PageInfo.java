@@ -14,8 +14,6 @@ public class PageInfo<T> {
 	private int start;//分页查询limit后的start
 	private int end;//分页查询结束limit后的end
 	public static int size=5;//每页固定显示的信息数量
-
-
 	private List<T> list;//每页显示数据
 
 	public int getStart() {
