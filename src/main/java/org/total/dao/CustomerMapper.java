@@ -1,10 +1,10 @@
 package org.total.dao;
 
-import java.util.List;
-
-import org.aspectj.weaver.ast.Or;
 import org.total.entity.Customer;
 import org.total.entity.Orders;
+import org.total.entity.PageInfo;
+
+import java.util.List;
 
 
 public interface CustomerMapper {
@@ -23,4 +23,7 @@ public interface CustomerMapper {
      Customer selectByUsernameAndPassword(Customer customer);
 //     List<Orders> queryOrdersByUserId(int id);
      List<Orders> selectInfo(String u);
+
+     List<Customer> findAll(PageInfo pageInfo);
+      int count2();
 }

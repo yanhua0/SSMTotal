@@ -16,7 +16,8 @@ public class CustomerMapperTest {
     private UserMapper userMapper;
     @Test
     public void selectInfo() {
-        System.out.println(customerMapper.selectInfo("八戒222"));
+
+        System.out.println(customerMapper.count2());
     }
 
     @Test

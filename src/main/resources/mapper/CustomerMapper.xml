@@ -37,4 +37,10 @@
         from orders o,customer c
         where o.cid=c.id and c.username=#{username};
     </select>
+    <select id="findAll" resultType="org.total.entity.Customer">
+        select *from customer limit #{start},#{end}
+    </select>
+    <select id="count2" resultType="java.lang.Integer">
+        select count(*) from customer
+    </select>
 </mapper>
