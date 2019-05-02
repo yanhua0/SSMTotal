@@ -78,5 +78,6 @@ public class PageInfo<T> {
 	}
 
 	public PageInfo() {
+
 	}
 }
