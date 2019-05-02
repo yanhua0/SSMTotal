@@ -19,12 +19,10 @@
         model.addAttribute("page", p);//这里前端使用c:forEach遍历时中的items写${page.list}
         return "list";
     }
-  //前端这样写
-   <c:forEach var="" items="${page.list}">
-                    <tr>
-                      
-                    </tr>
-   </c:forEach>
+    //前端这样写
+    <c:forEach var="" items="${page.list}">
+    <tr></tr>
+    </c:forEach>
 ## 4.访问时/pageHelper?page=x访问第x页。
     
 
