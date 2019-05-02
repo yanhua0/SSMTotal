@@ -14,10 +14,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerMapper customerMapper;
     public PageInfo<Customer> findAll(int page) {
-        int totalCount = customerMapper.count2();//总记录1数
+        int totalCount = customerMapper.count2();//总记录数，count2方法使用的sql语句:select count(*) from customer
         //实例化时传入第几页、每页显示数量、总记录数
         PageInfo<Customer> pageInfo=new PageInfo<Customer>(page,PageInfo.size,totalCount);
-        //分页查询
+        //分页查询,findAll使用的sql语句 select *from customer limit #{start},#{end}
         List<Customer>  list = customerMapper.findAll(pageInfo);
         pageInfo.setList(list);
         return pageInfo;

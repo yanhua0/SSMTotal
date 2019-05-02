@@ -7,13 +7,13 @@ import java.util.List;
  * @param <T>
  */
 public class PageInfo<T> {
-	private int page;
-	private int pageSize;
-	private int totalCount;
-	private int totalPage;
-	private int start;
-	private int end;
-	public static int size=5;
+	private int page;//第几页
+	private int pageSize;//每页显示信息数量
+	private int totalCount;//总共有几条
+	private int totalPage;//总共的页数
+	private int start;//分页查询limit后的start
+	private int end;//分页查询结束limit后的end
+	public static int size=5;//每页固定显示的信息数量
 
 
 	private List<T> list;//每页显示数据
@@ -75,8 +75,8 @@ public class PageInfo<T> {
 		this.pageSize = pageSize;
 		this.totalCount = totalCount;
 		this.totalPage = num.intValue();
-		this.start = (page - 1)*pageSize;
-		this.end = pageSize;
+		this.start = (page - 1)*pageSize;//计算从第几条开始查
+		this.end = pageSize;//计算从查到第几条
 	}
 
 	public PageInfo() {
