@@ -69,8 +69,8 @@ public class PageInfo<T> {
 	}
 
 	public PageInfo(int page, int pageSize, int totalCount) {
-		double tc = totalCount;
-		Double num = Math.ceil(tc/pageSize);//计算总页数
+		double t= totalCount;
+		Double num = Math.ceil(t/pageSize);//计算总页数
 		this.page = page;
 		this.pageSize = pageSize;
 		this.totalCount = totalCount;
