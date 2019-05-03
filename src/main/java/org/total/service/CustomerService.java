@@ -5,4 +5,5 @@ import org.total.entity.PageInfo;
 
 public interface CustomerService {
     PageInfo<Customer> findAll(int page);
+    PageInfo<Customer> findAll1(int page);
 }

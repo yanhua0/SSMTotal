@@ -77,6 +77,14 @@ public class PageInfo<T> {
 		this.end = pageSize;//计算从查到第几条
 	}
 
+	public PageInfo(int page, int pageSize, int totalCount, int totalPage) {
+		this.page = page;
+		this.pageSize = pageSize;
+		this.totalCount = totalCount;
+		this.totalPage = totalPage;
+
+	}
+
 	public PageInfo() {
 
 	}

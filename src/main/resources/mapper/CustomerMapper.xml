@@ -43,4 +43,7 @@
     <select id="count2" resultType="java.lang.Integer">
         select count(*) from customer
     </select>
+    <select id="findAll2" resultType="org.total.entity.Customer">
+        select *from customer limit #{start},#{end}
+    </select>
 </mapper>

@@ -19,8 +19,11 @@ public class TestDbToExcelTest {
     private CustomerService customerService;
     @Test
     public void main() {
-        PageInfo<Customer> pageInfo=customerService.findAll(2);
-        System.out.println(pageInfo.getList());
+        PageInfo<Customer> pageInfo=customerService.findAll(1);
+        System.out.println(pageInfo.getTotalPage());
+        System.out.println(pageInfo.getTotalCount());
+        System.out.println(customerService.findAll1(1).getTotalCount());
+        System.out.println(customerService.findAll1(1).getTotalPage());
 
     }
 }

@@ -1,5 +1,6 @@
 package org.total.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.total.entity.Customer;
 import org.total.entity.Orders;
 import org.total.entity.PageInfo;
@@ -25,5 +26,6 @@ public interface CustomerMapper {
      List<Orders> selectInfo(String u);
 
      List<Customer> findAll(PageInfo pageInfo);
+    List<Customer> findAll2(@Param("start")int start,@Param("end")int end);
       int count2();
 }
