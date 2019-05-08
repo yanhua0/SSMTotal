@@ -150,6 +150,18 @@
                     });
 
             })
+            $("#btn9").click(function () {
+                $.ajax({
+                    type:"get",
+                    url:"/total/oneTomany",
+                    data :{},
+                    success  :function (res) {
+                        console.log(res.orders[0].snu);
+                    },error:function () {
+                    }
+                });
+
+            })
         });
         
 
@@ -171,6 +183,7 @@
     <input type="button" id="btn6" value="获取后台Map">
     <input type="button" id="btn7" value="Map接收json字符串">
     <input type="button" id="btn8" value="ajax提交form表单">
+    <input type="button" id="btn9" value="一对多">
 </form>
 </body>
 </html>

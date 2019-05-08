@@ -6,7 +6,10 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.total.dao.CustomerMapper;
+import org.total.dao.OrdersMapper;
 import org.total.entity.HotSale;
+import org.total.entity.Orders;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -17,6 +20,10 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private CustomerMapper customerMapper;
+    @Autowired
+    private OrdersMapper ordersMapper;
 //springmvc不能直接用数组对象和list集合接受对象,可以使用json字符串
     @RequestMapping(value = "/user", method = RequestMethod.POST)
 
@@ -122,6 +129,7 @@ public class UserController {
             Object obj = map.get("user");
             System.out.println("obj=" + obj);
             JSONObject jsonobject = JSONObject.fromObject(obj);
+            //json格式转Java对象
             User user = (User) JSONObject.toBean(jsonobject, User.class);
             userMapper.insert(user);
             System.out.println(user);
@@ -135,5 +143,15 @@ public class UserController {
     @ResponseBody
     public User saveUser(User user) {
        return user;
+    }
+
+    /**
+     * 一对多测试
+     */
+    @RequestMapping(value = "/oneTomany", method = RequestMethod.GET)
+    @ResponseBody
+    public Orders oneTomany() {
+
+        return ordersMapper.selectByPrimaryKey(1);
     }
 }
