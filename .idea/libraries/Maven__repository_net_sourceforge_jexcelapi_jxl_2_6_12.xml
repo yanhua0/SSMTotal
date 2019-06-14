@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: repository.net.sourceforge.jexcelapi:jxl:2.6.12">
+    <CLASSES>
+      <root url="jar://G:/eclipse/eclipse/repository/repository/net/sourceforge/jexcelapi/jxl/2.6.12/jxl-2.6.12.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://G:/eclipse/eclipse/repository/repository/net/sourceforge/jexcelapi/jxl/2.6.12/jxl-2.6.12-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://G:/eclipse/eclipse/repository/repository/net/sourceforge/jexcelapi/jxl/2.6.12/jxl-2.6.12-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
