@@ -21,7 +21,7 @@ public class NkDaoTest {
     @Test
     public void insert() throws IOException, BiffException {
         ReadExcel re = new ReadExcel();
-        List<Nk> list = re.test("E:\\1.xls");
+        List<Nk> list = re.test("E:\\2.xlsx");
         for (Nk nk : list) {
             nkDao.insert(nk);
         }

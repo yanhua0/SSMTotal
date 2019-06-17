@@ -5,7 +5,7 @@
 <!--为DAO接口提供sql语句方法-->
 <mapper namespace="org.total.dao.NkDao">
     <insert id="insert">
-        insert into Nk(zj,zj_name,ids) values(#{zj},#{zjName},#{ids})
+        insert into Nk(type,jc,zz,cbs,zj,zj_name,ids) values(#{type},#{jc},#{zz},#{cbs},#{zj},#{zjName},#{ids})
     </insert>
     <update id="update">
         update nk set ids=#{ids} where id=#{id}

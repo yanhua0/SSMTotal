@@ -47,7 +47,7 @@ public class ReadExcel {
 //                String no6 = sheet.getCell(5, 0).getContents();
                 // sheet.getRows()返回该页的总行数，第二行开始
                 for (int i = 1; i < sheet.getRows(); i++) {
-                    Nk nk = new Nk(sheet.getCell(0, i).getContents(), sheet.getCell(1, i).getContents(), sheet.getCell(2, i).getContents());
+                    Nk nk = new Nk(sheet.getCell(0, i).getContents(), sheet.getCell(1, i).getContents(), sheet.getCell(2, i).getContents(),sheet.getCell(3, i).getContents(),sheet.getCell(4, i).getContents(),sheet.getCell(5, i).getContents(),sheet.getCell(6, i).getContents());
                     list.add(nk);
                 }
             }
@@ -61,16 +61,14 @@ public class ReadExcel {
                     continue;
                 }
                 // 获取当前工作薄的每一行，第2行开始
-                for (int rowNum = 0; rowNum <= xssfSheet.getLastRowNum(); rowNum++) {
+                for (int rowNum = 1; rowNum <= xssfSheet.getLastRowNum(); rowNum++) {
                     XSSFRow xssfRow = xssfSheet.getRow(rowNum);
                     // XSSFCell cell = xssfRow.getCell(rowNum);
                     // cell.setCellType(CellType.STRING);
                     if (xssfRow != null) {
                         XSSFCell one = xssfRow.getCell(0);
                         one.setCellType(CellType.STRING);
-                        if (one == null) {
-                            break;
-                        }
+
                         //读取第一列数据
                         XSSFCell two = xssfRow.getCell(1);
                         two.setCellType(CellType.STRING);
@@ -80,6 +78,7 @@ public class ReadExcel {
 
                         XSSFCell four = xssfRow.getCell(3);
                         four.setCellType(CellType.STRING);
+
                         XSSFCell five = xssfRow.getCell(4);
                         five.setCellType(CellType.STRING);
 
@@ -87,21 +86,18 @@ public class ReadExcel {
                         //给对象设置值
                         XSSFCell six = xssfRow.getCell(5);
                         six.setCellType(CellType.STRING);
-                        if (rowNum == 0) {
-                            continue;
-                        }
 
-                        // List<Department> de = departmentDao.findByDeptNameContaining(xssfRow.getCell(4).getStringCellValue());
+                        XSSFCell seven = xssfRow.getCell(5);
+                        seven .setCellType(CellType.STRING);
 
-                        // User user = new User(one.getStringCellValue(), two.getStringCellValue(), three.getStringCellValue(), four.getStringCellValue(), de.get(0).getId(), Double.valueOf(six.getStringCellValue()));
-                        //  list.add(user);
+                        Nk nk=new Nk(one.getStringCellValue(),two.getStringCellValue(),three.getStringCellValue(),four.getStringCellValue(),five.getStringCellValue(),six.getStringCellValue(),seven.getStringCellValue());
+                        list.add(nk);
 
                     }
                 }
 
             }
         }
-
         return list;
     }
 
