@@ -6,6 +6,7 @@ import org.total.entity.Orders;
 import org.total.entity.PageInfo;
 
 import java.util.List;
+import java.util.Map;
 
 
 public interface CustomerMapper {
@@ -28,4 +29,7 @@ public interface CustomerMapper {
      List<Customer> findAll(PageInfo pageInfo);
     List<Customer> findAll2(@Param("start")int start,@Param("end")int end);
       int count2();
+
+    List<Customer> findTest( Customer customer);
+    List<Customer> findTest1(Map<Integer,Integer> map);
 }

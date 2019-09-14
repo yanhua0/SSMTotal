@@ -87,7 +87,7 @@ public class ReadExcel {
                         XSSFCell six = xssfRow.getCell(5);
                         six.setCellType(CellType.STRING);
 
-                        XSSFCell seven = xssfRow.getCell(5);
+                        XSSFCell seven = xssfRow.getCell(6);
                         seven .setCellType(CellType.STRING);
 
                         Nk nk=new Nk(one.getStringCellValue(),two.getStringCellValue(),three.getStringCellValue(),four.getStringCellValue(),five.getStringCellValue(),six.getStringCellValue(),seven.getStringCellValue());

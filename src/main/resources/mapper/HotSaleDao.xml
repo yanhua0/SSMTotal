@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--为DAO接口提供sql语句方法-->
 <mapper namespace="org.total.dao.HotSaleDao">
-   
+
     <select id="queryAll" resultType="hotsale">
         select
         *from
@@ -29,12 +29,27 @@
         where username=#{id} or
         name=#{id}
     </select>
+    <select id="dynamic" resultType="org.total.entity.HotSale">
+        select * from
+        <if test="hotSale.id gt 2">
+            hotsale
+        </if>
+
+        <where>
+            <!--<if test="hotSale.id gt 2">-->
+            <!--id=10-->
+            <!--</if>-->
+            <if test="hotSale.bimg=='/resources/img/c-i.jpg' ">
+                id=10
+            </if>
+        </where>
+    </select>
     <!--<select id="queryAllName" resultType="order">-->
-        <!--select-->
-        <!--*from-->
-        <!--orderlist-->
-        <!--where-->
-        <!--name like concat('%',#{name},'%')-->
-        <!--and username=#{username}-->
+    <!--select-->
+    <!--*from-->
+    <!--orderlist-->
+    <!--where-->
+    <!--name like concat('%',#{name},'%')-->
+    <!--and username=#{username}-->
     <!--</select>-->
 </mapper>

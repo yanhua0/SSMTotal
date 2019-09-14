@@ -11,4 +11,6 @@ public interface HotSaleDao {
     List<HotSale> queryById2(int id);
     HotSale queryByIdOrNumber(String id);
     int insert(HotSale hotSale);
+    List<HotSale> dynamic(@Param("hotSale") HotSale hotSale);
+
 }

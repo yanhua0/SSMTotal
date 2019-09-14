@@ -40,4 +40,12 @@ public class HotSaleDaoTest {
         HotSale hotSale=hotSaleDao.queryByIdOrNumber("2");
         System.out.println(hotSale);
     }
+    @Test
+    public void dynamic(){
+        HotSale hotSale=new HotSale();
+        hotSale.setId(1);
+        hotSale.setBimg("/resources/img/c-i.jpg");
+        System.out.println(hotSaleDao.dynamic(hotSale).size());
+        System.out.println(hotSaleDao.dynamic(hotSale));
+    }
 }

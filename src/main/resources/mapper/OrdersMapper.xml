@@ -29,5 +29,10 @@
         from orders
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="findAll" resultType="org.total.entity.Orders">
+        select
+        *
+        from orders
+    </select>
 
 </mapper>

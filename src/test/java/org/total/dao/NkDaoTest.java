@@ -41,8 +41,9 @@ public class NkDaoTest {
             }
             sb = new StringBuffer();
             sb.append(nkList.get(i).ids);
-            for (int j = i + 1; j < nkList.size(); j++) {
-                if (nkList.get(i).zjName.equals(nkList.get(j).zjName) && nkList.get(i).zj.equals(nkList.get(j).zj)) {
+            //执行到最后一行没有修改，最后一行不能添加ids，
+            for (int j = i + 1; j < nkList.size()+1; j++) {
+                if (j<nkList.size()&&nkList.get(i).zjName.equals(nkList.get(j).zjName) && nkList.get(i).zj.equals(nkList.get(j).zj)) {
                     sb.append(nkList.get(j).ids);
                     count++;
                     nkDao.delete(nkList.get(j).id);
@@ -50,7 +51,6 @@ public class NkDaoTest {
                 }
                 nkList.get(i).ids = sb.toString();
                 System.out.println(sb.toString());
-                System.out.println();
                 nkDao.update(nkList.get(i));
                 key = count;
                 count = 0;
@@ -61,19 +61,7 @@ public class NkDaoTest {
         //System.out.println(sb.toString());
     }
 
-    @Test
-    public void fin() {
-        Nk nk = nkDao.findById(1);
-//        StringBuffer sb = new StringBuffer();
-//        sb.append(nk.ids);
-//        List<Nk> nkList = nkDao.findAll();
-//        for(int i=61;i<60;i++){
-//            sb.append(nkList.get(i).ids);
-//        }
-//        nk.ids=sb.toString();
-        nk.ids = "358662,";
-        nkDao.update(nk);
-    }
+
 
     @Test
     public void del() {
