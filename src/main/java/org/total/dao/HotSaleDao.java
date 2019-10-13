@@ -8,13 +8,18 @@ import java.util.List;
 
 public interface HotSaleDao {
     /**
-     * --         select
+     * 1--         select
      * --         *from
      * --        hotsale
      * --        where
      * --         id <![CDATA[ <= ]]> (select id from hotsale order by id desc limit #{start}, 1 )
      * --        order by id desc
      * --        limit #{pageSize}
+     *
+     *2. select *from hotsale  h  join (select h.id from hotsale h order by h.id desc limit #{start},#{end} ) t2
+     * on h.id=t2.id
+     * order by h.id desc
+     * 速度最快
      * @param pageInfo
      * @return
      */

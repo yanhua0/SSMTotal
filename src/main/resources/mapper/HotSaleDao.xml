@@ -96,9 +96,13 @@
     </select>
 
     <select id="queryAll" resultType="hotsale">
-select *from hotsale  h  join (select h.id from hotsale h order by h.id desc limit #{start},#{end} ) t2
-on h.id=t2.id
-order by h.id desc
+select
+          *from
+      hotsale
+        where
+        id <![CDATA[ <= ]]> (select id from hotsale order by id desc limit #{start}, 1 )
+          order by id desc
+        limit #{pageSize}
     </select>
     <select id="queryById" resultType="hotsale">
         select
