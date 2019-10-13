@@ -20,7 +20,12 @@
     <select id="findAll" resultType="mybatis.entity.User">
       select *from user
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <select id="between" resultType="mybatis.entity.User">
+    select *from user where
+    1=1
+    and create_time between #{0} and #{1}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user
     where username = #{username,jdbcType=VARCHAR}
   </delete>

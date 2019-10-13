@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SSM+ajax+json+interceptor+uploadfile+downloadfile+enums+redis" target="1.5" />
+      <module name="SSM+ajax+json+interceptor+uploadfile+downloadfile+enums+redis" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

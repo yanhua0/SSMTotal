@@ -5,11 +5,100 @@
 <!--为DAO接口提供sql语句方法-->
 <mapper namespace="org.total.dao.HotSaleDao">
 
-    <select id="queryAll" resultType="hotsale">
+    <insert id="insert" >
+
+        insert into hotsale
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="number != null" >
+                number,
+            </if>
+            <if test="username != null" >
+                username,
+            </if>
+            <if test="name != null" >
+                name,
+            </if>
+            <if test="price != null" >
+                price,
+            </if>
+            <if test="img != null" >
+                img,
+            </if>
+            <if test="wimg != null" >
+                wimg,
+            </if>
+            <if test="bimg != null" >
+                bimg,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+            <if test="buycarimg != null" >
+                buycarimg,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="number != null" >
+                #{number,jdbcType=INTEGER},
+            </if>
+            <if test="username != null" >
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null" >
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null" >
+                #{price,jdbcType=INTEGER},
+            </if>
+            <if test="img != null" >
+                #{img,jdbcType=VARCHAR},
+            </if>
+            <if test="wimg != null" >
+                #{wimg,jdbcType=VARCHAR},
+            </if>
+            <if test="bimg != null" >
+                #{bimg,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="buycarimg != null" >
+                #{buycarimg,jdbcType=VARCHAR},
+            </if>
+        </trim>
+
+    </insert>
+    <insert id="insertList">
+        insert into hotsale (id, number, username,
+        name, price, img, wimg,
+        bimg, create_time, buycarimg
+        )
+        values
+        <foreach collection="list" item="list" index="index" separator=",">
+            (#{list.id,jdbcType=INTEGER}, #{list.number,jdbcType=INTEGER}, #{list.username,jdbcType=VARCHAR},
+            #{list.name,jdbcType=VARCHAR}, #{list.price,jdbcType=INTEGER}, #{list.img,jdbcType=VARCHAR}, #{list.wimg,jdbcType=VARCHAR},
+            #{list.bimg,jdbcType=VARCHAR}, #{list.createTime,jdbcType=TIMESTAMP}, #{list.buycarimg,jdbcType=VARCHAR}
+            )
+        </foreach>
+
+    </insert>
+    <select id="queryAll2" resultType="hotsale">
         select
         *from
        hotsale
-       order by create_time desc
+       order by id desc
+    </select>
+
+    <select id="queryAll" resultType="hotsale">
+select *from hotsale  h  join (select h.id from hotsale h order by h.id desc limit #{start},#{end} ) t2
+on h.id=t2.id
+order by h.id desc
     </select>
     <select id="queryById" resultType="hotsale">
         select
@@ -43,6 +132,9 @@
                 id=10
             </if>
         </where>
+    </select>
+    <select id="findAllCount" resultType="java.lang.Long">
+        select count(0) from hotsale
     </select>
     <!--<select id="queryAllName" resultType="order">-->
     <!--select-->

@@ -2,6 +2,7 @@ package mybatis.dao;
 
 import mybatis.entity.User;
 
+import java.util.Date;
 import java.util.List;
 
 public interface UserMapper {
@@ -17,4 +18,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
     List<User> findAll();
+    List<User> between(Date s, Date e);
 }

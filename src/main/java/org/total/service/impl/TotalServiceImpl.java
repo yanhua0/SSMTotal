@@ -30,7 +30,7 @@ public class TotalServiceImpl implements TotalService{
     public List<HotSale> queryhotsale() {
         try {
             logger.info("查询成功！");
-            return hotSaleDao.queryAll();
+            return hotSaleDao.queryAll2();
         }catch (Exception e)
         {   logger.warn("系统错误！");
             throw new TotalException("系统错误!");
@@ -64,7 +64,7 @@ public class TotalServiceImpl implements TotalService{
     public List<HotSale> queryById2(int id) {
         if(id==0)
         {
-            return hotSaleDao.queryAll();
+            return hotSaleDao.queryAll2();
         }
         return hotSaleDao.queryById2(id);
     }
